@@ -14,7 +14,7 @@ export function watchFiles(
   // which generate an invalid plugin zip.
   // in order to fix this, we use awaitWriteFinish option only on Windows.
   const watchOptions =
-    os.platform() === "win32"
+    (os.platform() === "win32" || os.platform() === "linux")
       ? {
           awaitWriteFinish: {
             stabilityThreshold: 1000,
